@@ -1,0 +1,6 @@
+framework module Pods_ChatbotSample {
+  umbrella header "Pods-ChatbotSample-umbrella.h"
+
+  export *
+  module * { export * }
+}
