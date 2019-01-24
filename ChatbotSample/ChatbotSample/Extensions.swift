@@ -32,4 +32,22 @@ extension String {
         Formatter.date.dateFormat = dateFormat
         return Formatter.date.date(from: self)
     }
+    func deletingPrefix(_ prefix: String) -> String {
+        guard self.hasPrefix(prefix) else { return self }
+        return String(self.dropFirst(prefix.count))
+    }
+    func getPrefix(word: String, character: String) ->String {
+        if let index = word.range(of: character)?.lowerBound {
+            let substring = word[..<index]                 // "ora"
+            // or  let substring = word.prefix(upTo: index) // "ora"
+            // (see picture below) Using the prefix(upTo:) method is equivalent to using a partial half-open range as the collection’s subscript.
+            // The subscript notation is preferred over prefix(upTo:).
+            
+            let string = String(substring)
+            print("***: \(string)")  // "ora"
+            return string
+        }
+        return ""
+    }
 }
+

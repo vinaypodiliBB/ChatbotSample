@@ -1,16 +1,52 @@
 PODS:
+  - ApiAI (0.7.2):
+    - ApiAI/AudioFileConverter (= 0.7.2)
+    - ApiAI/Core (= 0.7.2)
+    - ApiAI/Events (= 0.7.2)
+    - ApiAI/ResponseMapping (= 0.7.2)
+    - ApiAI/UIKit (= 0.7.2)
+    - ApiAI/UserEntities (= 0.7.2)
+    - ApiAI/VoiceFileRequest (= 0.7.2)
+    - ApiAI/VoiceRequest (= 0.7.2)
+  - ApiAI/AudioFileConverter (0.7.2):
+    - ApiAI/Core
+  - ApiAI/Core (0.7.2)
+  - ApiAI/Events (0.7.2):
+    - ApiAI/Core
+  - ApiAI/ResponseMapping (0.7.2):
+    - ApiAI/Core
+  - ApiAI/UIKit (0.7.2):
+    - ApiAI/Core
+    - ApiAI/VoiceRequest
+  - ApiAI/UserEntities (0.7.2):
+    - ApiAI/Core
+  - ApiAI/VoiceFileRequest (0.7.2):
+    - ApiAI/Core
+  - ApiAI/VoiceRequest (0.7.2):
+    - ApiAI/Core
   - IQKeyboardManagerSwift (6.2.0)
+  - JSQMessagesViewController (7.3.5):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
 
 DEPENDENCIES:
+  - ApiAI
   - IQKeyboardManagerSwift
+  - JSQMessagesViewController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ApiAI
     - IQKeyboardManagerSwift
+    - JSQMessagesViewController
+    - JSQSystemSoundPlayer
 
 SPEC CHECKSUMS:
+  ApiAI: d4b49d3736f33ce6f3ef66dc33c0e0fccb23579e
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  JSQMessagesViewController: 6587f56aedbcb150a8ba1d968e1ef58b1bc758b7
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
 
-PODFILE CHECKSUM: 1dde731233807bcfbce4065717b0363f561248dd
+PODFILE CHECKSUM: 0aa4a191d45e4d7aa8fa91ed71e0a5d5d7aabd09
 
 COCOAPODS: 1.5.3

@@ -13,6 +13,9 @@
 		4614803421F70E6A00946966 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4614803221F70E6A00946966 /* Main.storyboard */; };
 		4614803621F70E7E00946966 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4614803521F70E7E00946966 /* Assets.xcassets */; };
 		4614803921F70E7E00946966 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4614803721F70E7E00946966 /* LaunchScreen.storyboard */; };
+		465D07B321F9B1B700FFECBD /* BBChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465D07B221F9B1B700FFECBD /* BBChatViewController.swift */; };
+		465D07B521F9BD7600FFECBD /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465D07B421F9BD7600FFECBD /* SpeechManager.swift */; };
+		465D07B721F9CEDF00FFECBD /* BBOutgoingImageTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465D07B621F9CEDF00FFECBD /* BBOutgoingImageTVCell.swift */; };
 		466DFD2321F8AC8300ECAF8B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466DFD2221F8AC8300ECAF8B /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +27,9 @@
 		4614803521F70E7E00946966 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4614803821F70E7E00946966 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4614803A21F70E7E00946966 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		465D07B221F9B1B700FFECBD /* BBChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBChatViewController.swift; sourceTree = "<group>"; };
+		465D07B421F9BD7600FFECBD /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
+		465D07B621F9CEDF00FFECBD /* BBOutgoingImageTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBOutgoingImageTVCell.swift; sourceTree = "<group>"; };
 		466DFD2221F8AC8300ECAF8B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		48F07FC35623FA5CE1A1AD17 /* Pods-ChatbotSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatbotSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatbotSample/Pods-ChatbotSample.release.xcconfig"; sourceTree = "<group>"; };
 		6CA9F369EEBF40B85FB22B3A /* Pods_ChatbotSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatbotSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +81,9 @@
 				4614802E21F70E6A00946966 /* AppDelegate.swift */,
 				466DFD2221F8AC8300ECAF8B /* Extensions.swift */,
 				4614803021F70E6A00946966 /* ViewController.swift */,
+				465D07B221F9B1B700FFECBD /* BBChatViewController.swift */,
+				465D07B621F9CEDF00FFECBD /* BBOutgoingImageTVCell.swift */,
+				465D07B421F9BD7600FFECBD /* SpeechManager.swift */,
 				4614803221F70E6A00946966 /* Main.storyboard */,
 				4614803521F70E7E00946966 /* Assets.xcassets */,
 				4614803721F70E7E00946966 /* LaunchScreen.storyboard */,
@@ -169,13 +178,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ChatbotSample/Pods-ChatbotSample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ApiAI/ApiAI.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ApiAI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -211,6 +226,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				465D07B321F9B1B700FFECBD /* BBChatViewController.swift in Sources */,
+				465D07B721F9CEDF00FFECBD /* BBOutgoingImageTVCell.swift in Sources */,
+				465D07B521F9BD7600FFECBD /* SpeechManager.swift in Sources */,
 				4614803121F70E6A00946966 /* ViewController.swift in Sources */,
 				466DFD2321F8AC8300ECAF8B /* Extensions.swift in Sources */,
 				4614802F21F70E6A00946966 /* AppDelegate.swift in Sources */,
