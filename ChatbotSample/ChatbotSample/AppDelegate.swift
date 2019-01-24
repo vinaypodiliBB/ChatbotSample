@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enable = false
         let configuration: AIConfiguration = AIDefaultConfiguration()
         configuration.clientAccessToken = "57e128108f064fea90dc3af3afdf548a"//"68f7d622321e48ef9ab144cc427d9e10"//
         //you would find the client access token in settings section of your agent at Dialogflow

@@ -25,8 +25,8 @@ class BBChatViewController: JSQMessagesViewController {
     var messages = [JSQMessage]()
     override func viewDidLoad() {
       super.viewDidLoad()
-        
-        
+        self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        self.title = "MathBot"
         
         self.senderId = "some userId"
         self.senderDisplayName = "some userName"
@@ -70,9 +70,9 @@ class BBChatViewController: JSQMessagesViewController {
     }
     func populateWithWelcomeMessage()
     {
-        self.addMessage(withId: "BotId", name: "Bot", text: "Hi I am Basky")
+        self.addMessage(withId: "BotId", name: "Bot", text: "Hi I am MathBot")
         self.addMessage(withId: "BotId", name: "Bot", text: "I am here to help you about anything related to the Math expressions")
-        self.addMessage(withId: "BotId", name: "Bot", text: "At any moment you feel that I am troubling you, you can ask me sit quiet or swipe on the screen")
+       // self.addMessage(withId: "BotId", name: "Bot", text: "At any moment you feel that I am troubling you, you can ask me sit quiet or swipe on the screen")
         self.finishReceivingMessage()
     }
     private func addMessage(withId id: String, name: String, text: String) {
@@ -177,7 +177,7 @@ extension BBChatViewController {
     }
     private func setupIncomingBubble() -> JSQMessagesBubbleImage {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
-        return bubbleImageFactory!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+        return bubbleImageFactory!.incomingMessagesBubbleImage(with: UIColor.orange)
     }
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let message = messages[indexPath.item]
@@ -197,7 +197,7 @@ extension BBChatViewController {
         if message.senderId == senderId {
             cell.textView?.textColor = UIColor.white
         }else {
-            cell.textView?.textColor = UIColor.black
+            cell.textView?.textColor = UIColor.white
         }
         return cell
     }
@@ -233,15 +233,14 @@ extension BBChatViewController {
             {
                 if textResponse != "" {
                     SpeechManager.shared.speak(text: textResponse)
-
-                let parts = textResponse.components(separatedBy: "=")
-
-                let prefix = parts[0]
+                    let parts = textResponse.components(separatedBy: "=")
+                    
+                    let prefix = parts[0]
                     if prefix == "imgUrl" {
                         let url = URL(string: textResponse.deletingPrefix(prefix + "="))
                         if let data = try? Data(contentsOf: url!) {
-                             //   let image = UIImage(data: data)
-                            let image = UIImage(named: "Triangle")
+                            let image = UIImage(data: data)
+                            //let image = UIImage(named: "Triangle")
                             if let photoItem = JSQPhotoMediaItem(image: image) {
                                 self.addMedia(photoItem, "Bot", "BotId")
                             }
@@ -250,9 +249,26 @@ extension BBChatViewController {
                     }else {
                         self.addMessage(withId: "BotId", name: "Bot", text: textResponse)
                     }
-              //  self.addMessage(withId: "BotId", name: "Bot", text: textResponse)
-                self.finishReceivingMessage()
+                    //  self.addMessage(withId: "BotId", name: "Bot", text: textResponse)
+                }else {
+                    if let messages = response.result.fulfillment.messages {
+                        if messages.count > 1 {
+                            if let payload = messages[1]["payload"] as? [String : Any] {
+                                if let imageurl = payload["imageurl"] as? String {
+                                    let url = URL(string: imageurl)
+                                    if let data = try? Data(contentsOf: url!) {
+                                        let image = UIImage(data: data)
+                                        //let image = UIImage(named: "triangle")
+                                        if let photoItem = JSQPhotoMediaItem(image: image) {
+                                            self.addMedia(photoItem, "Bot", "BotId")
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
+                self.finishReceivingMessage()
             }
         }, failure: { (request, error) in
             print(error)
@@ -262,7 +278,7 @@ extension BBChatViewController {
 }
 extension BBChatViewController {
     func addMedia(_ media:JSQMediaItem, _ displayname: String, _ withId: String) {
-        if let message = JSQMessage(senderId: self.senderId(), displayName: displayname, media: media) {
+        if let message = JSQMessage(senderId: withId, displayName: displayname, media: media) {
         self.messages.append(message)
         }
         
