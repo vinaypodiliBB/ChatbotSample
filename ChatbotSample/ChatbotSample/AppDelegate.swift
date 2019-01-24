@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         let configuration: AIConfiguration = AIDefaultConfiguration()
-        configuration.clientAccessToken = "68f7d622321e48ef9ab144cc427d9e10"//"57e128108f064fea90dc3af3afdf548a"
+        configuration.clientAccessToken = "57e128108f064fea90dc3af3afdf548a"//"68f7d622321e48ef9ab144cc427d9e10"//
         //you would find the client access token in settings section of your agent at Dialogflow
         let apiai = ApiAI.shared()
         apiai?.configuration = configuration
